@@ -82,7 +82,10 @@ public class MainGUIController {
                     JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
-
+                if (enteredCapacity <= 0){
+                    JOptionPane.showMessageDialog(null, "Incorrect capacity.");
+                    return;
+                }
                 model.addSalon(enteredName, enteredCapacity);
                 updateSalonsList();
             }
@@ -134,14 +137,18 @@ public class MainGUIController {
                 engineName = Double.parseDouble(engStr);
                 mileageName = Double.parseDouble(mileageStr);
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Invalid capacities");
+                JOptionPane.showMessageDialog(null, "Invalid capacities.");
                 return;
             } catch (IllegalArgumentException e) {
-                JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Error.", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             if ("NEW".equals(cond.toString()) && mileageName != 0.0) {
-                JOptionPane.showMessageDialog(null, "If the car is new, the mileage must be 0");
+                JOptionPane.showMessageDialog(null, "If the car is new, the mileage must be 0.");
+                return;
+            }
+            if (priceName <= 0 || prodYearName < 1886 || engineName <= 0 || mileageName < 0){
+                JOptionPane.showMessageDialog(null, "Incorrect values.");
                 return;
             }
 
