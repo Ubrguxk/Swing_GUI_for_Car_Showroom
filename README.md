@@ -14,4 +14,4 @@ It implements the Swing library, MVC pattern and more.
 Completed.
 
 ## Acknowledgements
-All the structure and content in this project was given by my teacher.
+Project structure was planned by my teacher. 
